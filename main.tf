@@ -90,7 +90,7 @@ resource "aws_security_group" "five" {
 }
 
 resource "aws_s3_bucket" "six" {
-  bucket = "bhatthi123456xyz"
+  bucket = "mybhatthi123"
 }
 
 resource "aws_iam_user" "seven" {
