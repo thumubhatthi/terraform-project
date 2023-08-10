@@ -1,16 +1,16 @@
 #this file consists of code for instances and sg
 provider "aws" {
-region = "ap-south-1"
+region = "us-east-1"
 access_key = "AKIASGSZUTFFMFAZYLO2"
 secret_key = "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"
 }
 
 resource "aws_instance" "one" {
-  ami             = "ami-0da59f1af71ea4ad2"
+  ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
-  key_name        = "public.pem"
+  key_name        = "virgina-key"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-south-1a"
+  availability_zone = "us-east-1a"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -25,11 +25,11 @@ EOF
 }
 
 resource "aws_instance" "two" {
-  ami             = "ami-0da59f1af71ea4ad2"
+  ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
-  key_name        = "public.pem"
+  key_name        = "virgina-key"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-south-1b"
+  availability_zone = "us-east-1b"
   user_data       = <<EOF
 #!/bin/bash
 sudo -i
@@ -44,29 +44,29 @@ EOF
 }
 
 resource "aws_instance" "three" {
-  ami             = "ami-0da59f1af71ea4ad2"
+  ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
-  key_name        = "public.pem"
+  key_name        = "virgina-key"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-south-1a"
+  availability_zone = "us-east-1a"
   tags = {
     Name = "app-server-1"
   }
 }
 
 resource "aws_instance" "four" {
-  ami             = "ami-0da59f1af71ea4ad2"
+  ami             = "ami-08a52ddb321b32a8c"
   instance_type   = "t2.micro"
-  key_name        = "public.pem"
+  key_name        = "virgina-key"
   vpc_security_group_ids = [aws_security_group.five.id]
-  availability_zone = "ap-south-1b"
+  availability_zone = "us-east-1b"
   tags = {
     Name = "app-server-2"
   }
 }
 
 resource "aws_security_group" "five" {
-  name = "elb-sg"
+  name = "bhatthi-sg"
   ingress {
     from_port   = 22
     to_port     = 22
@@ -90,7 +90,7 @@ resource "aws_security_group" "five" {
 }
 
 resource "aws_s3_bucket" "six" {
-  bucket = "baraths3bucket006"
+  bucket = "baraths3bucket009"
 }
 
 resource "aws_iam_user" "seven" {
@@ -101,13 +101,13 @@ name = each.value
 variable "user_names" {
 description = "*"
 type = set(string)
-default = ["user1", "user2", "user3", "user4"]
+default = ["user2", "user3", "user4", "user5"]
 }
 
 resource "aws_ebs_volume" "eight" {
- availability_zone = "ap-south-1a"
+ availability_zone = "us-east-1a"
   size = 40
   tags = {
-    Name = "ebs-barath06"
+    Name = "ebs-bhatthi09"
   }
 }
