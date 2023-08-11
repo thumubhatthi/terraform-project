@@ -1,6 +1,6 @@
 resource "aws_elb" "bar" {
   name               = "bhatthi-terraform-elb"
-  availability_zones = ["us-east-1a", "us-east-1b"]
+  availability_zones = ["eu-west-3a", "eu-west-3b"]
 
   listener {
     instance_port     = 80
