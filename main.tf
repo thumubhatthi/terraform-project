@@ -1,14 +1,14 @@
 #this file consists of code for instances and sg
 provider "aws" {
 region = "eu-west-3"
-access_key = "AKIA36JX34OE4AXKSK7E"
-secret_key = "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"
+access_key = "AKIASGSZUTFFMFAZYLO2"
+secret_key = "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"
 }
 
 resource "aws_instance" "one" {
   ami             = "ami-0b8b5288592eca360"
   instance_type   = "t2.micro"
-  key_name        = "terrapem"
+  key_name        = "paris"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "eu-west-3a"
   user_data       = <<EOF
@@ -27,7 +27,7 @@ EOF
 resource "aws_instance" "two" {
   ami             = "ami-0b8b5288592eca360"
   instance_type   = "t2.micro"
-  key_name        = "terrapem"
+  key_name        = "paris"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "eu-west-3b"
   user_data       = <<EOF
@@ -46,7 +46,7 @@ EOF
 resource "aws_instance" "three" {
   ami             = "ami-0b8b5288592eca360"
   instance_type   = "t2.micro"
-  key_name        = "terrapem"
+  key_name        = "paris"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "eu-west-3a"
   tags = {
@@ -57,7 +57,7 @@ resource "aws_instance" "three" {
 resource "aws_instance" "four" {
   ami             = "ami-0b8b5288592eca360"
   instance_type   = "t2.micro"
-  key_name        = "terrapem"
+  key_name        = "paris"
   vpc_security_group_ids = [aws_security_group.five.id]
   availability_zone = "eu-west-3b"
   tags = {
@@ -90,7 +90,7 @@ resource "aws_security_group" "five" {
 }
 
 resource "aws_s3_bucket" "six" {
-  bucket = "rahamshaikterra7gsywgys7889900prodenvgshj"
+  bucket = "bhatthi12346788"
 }
 
 resource "aws_iam_user" "seven" {
@@ -101,12 +101,12 @@ name = each.value
 variable "user_names" {
 description = "*"
 type = set(string)
-default = ["user1", "user2", "user3", "user4"]
+default = ["user2", "user3", "user4", "user5"]
 }
 
 resource "aws_ebs_volume" "eight" {
  availability_zone = "eu-west-3a"
-  size = 40
+  size = 20
   tags = {
     Name = "ebs-001"
   }
